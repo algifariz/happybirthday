@@ -289,4 +289,76 @@ body {
     font-size: 1.5rem;
     font-weight: lighter;
   }
+  /* Slideshow container */
+.slideshow-container {
+  max-width: 100%;
+  position: relative;
+  margin: auto;
+}
+
+/* Gambar slide */
+.mySlides {
+  display: none;
+}
+
+.profile-picture {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Tombol navigasi untuk mengontrol slide (opsional) */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.prev {
+  left: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 3px 0 0;
+}
+
+/* Animasi transisi fade */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from { opacity: .4 } 
+  to { opacity: 1 }
+}
+
+@keyframes fade {
+  from { opacity: .4 } 
+  to { opacity: 1 }
+}
+#replay {
+  color: black; /* Warna teks default */
+  font-size: 1.2em;
+  transition: color 0.3s ease; /* Transisi warna agar lebih halus */
+}
+
+#replay:hover {
+  color: #ff69b4; /* Warna saat di-hover, misalnya pink */
+  cursor: pointer; /* Ganti kursor menjadi pointer untuk menunjukkan bahwa teks bisa diklik */
+}
+
 }

@@ -27,21 +27,29 @@
         <div class="one">
             <h1 class="one">
                 Hi
-                <span id="name">Irene</span>
+                <span id="name">Neng Intan Puspita Sari</span>
             </h1>
-            <p class="two" id="greetingText">I really like your name btw!</p>
+            <p class="two" id="greetingText">Sorry, for this birthday, I can't give you anything, but I can</p>
         </div>
 
         <div class="three">
-            <p>It's your birthday!! :D</p>
+            <p>happy birthday darling!! :D</p>
         </div>
 
         <div class="four">
             <div class="text-box">
                 <p class="hbd-chatbox">
-                Happy birthday to youu!! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur quisquam amet ipsam vitae, voluptatum architecto aliquid id quo error tempora quos aperiam magni necessitatibus quas ut, possimus nesciunt nam ad.
+                    Hari ini, di hari spesialmu, aku ingin mengucapkan terima kasih karena telah hadir dalam hidupku. Setiap momen bersamamu adalah hadiah terbesar yang pernah aku terima. Semoga di hari ulang tahunmu ini, kebahagiaan selalu mengelilingimu seperti kamu yang selalu menghadirkan senyuman di wajahku.
+
+                    Maaf, kali ini aku hanya bisa menyampaikan ucapan ini melalui web dan belum bisa memberikan kado yang istimewa atau apapun itu. Tapi percayalah, rasa sayang dan perhatian ini lebih dari sekadar kado. Aku berharap semua impianmu terwujud, dan kita bisa terus menciptakan kenangan indah bersama.
+                    
+                    Terima kasih sudah menjadi alasan di balik setiap kebahagiaan dan harapanku. Selamat bertambah usia, semoga hari-harimu penuh cinta, keberkahan, dan kebahagiaan.
+                    
+                    Aku sayang kamu, lebih dari yang bisa aku ungkapkan dengan kata-kata.
+                    
+                    Happy Birthday, Love! 🎂❤️
                 </p>
-                <p class="fake-btn">Send</p>
+                <p class="fake-btn">Next</p>
             </div>
         </div>
 
@@ -65,13 +73,35 @@
         </div>
 
         <div class="six">
-            <img src="./img/irene.jpg" alt="profile" class="profile-picture" id="imagePath"/>
+            <div class="slideshow-container">
+                <!-- Slide pertama -->
+                <div class="mySlides fade">
+                    <img src="./img/IMG_3024.jpg" alt="profile 1" class="profile-picture">
+                </div>
+        
+                <!-- Slide kedua -->
+                <div class="mySlides fade">
+                    <img src="./img/Foto dari Algifari Zidan.jpg" alt="profile 2" class="profile-picture">
+                </div>
+        
+                <!-- Slide ketiga -->
+                <div class="mySlides fade">
+                    <img src="./img/IMG_3019.jpg" alt="profile 3" class="profile-picture">
+                </div>
+        
+                <!-- Slide keempat -->
+                <div class="mySlides fade">
+                    <img src="./img/IMG_4047.jpg" alt="profile 4" class="profile-picture">
+                </div>
+            </div>
+        
             <img src="img/hat.svg" alt="hat" class="hat" />
             <div class="wish">
                 <h3 class="wish-hbd">Happy Birthday!</h3>
-                <h5 id="wishText">May the js.prototypes always be with you! ;)</h5>
+                <h5 id="wishText"> ;)</h5>
             </div>
         </div>
+        
 
         <div class="seven">
             <div class="baloons">
@@ -154,5 +184,33 @@
     <!-- Sweetalert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="application/javascript" src="./script/main.js"></script>
-
+    <script>
+        let slideIndex = 0;
+        showSlides();
+        
+        function showSlides() {
+            let slides = document.getElementsByClassName("mySlides");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  // Sembunyikan semua slide
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1 }  // Kembali ke slide pertama jika sudah di slide terakhir
+            slides[slideIndex - 1].style.display = "block";  // Tampilkan slide saat ini
+            setTimeout(showSlides, 3000);  // Ganti slide setiap 3 detik
+        }
+        
+        // Fungsi untuk tombol manual (opsional)
+        function plusSlides(n) {
+            let slides = document.getElementsByClassName("mySlides");
+            slideIndex += n;
+            if (slideIndex > slides.length) { slideIndex = 1 }
+            if (slideIndex < 1) { slideIndex = slides.length }
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex - 1].style.display = "block";
+        }
+        </script>
+        
 </html>
+
