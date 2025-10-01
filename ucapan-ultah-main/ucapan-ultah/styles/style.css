@@ -1,12 +1,76 @@
-html {
+* {
   box-sizing: border-box;
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   margin: 0;
 }
 
+/* Login page styles */
+.login_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.login_form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 300px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 300px;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding-left: 10px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  border: 2px solid #000;
+}
+
+button[type="submit"] {
+  width: 300px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  background-color: #000;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #fff;
+  color: #000;
+  border: 2px solid #000;
+}
+
+.login_description {
+  font-size: 14px;
+  color: #ccc;
+  margin: 10px 0;
+  padding: 0 10px;
+  text-align: center;
+}
+
+/* Birtday page styles */
 .song {
   visibility: hidden;
 }
@@ -23,9 +87,9 @@ body {
 
 .container > div {
   left: 0;
-  position: absolute;
   right: 0;
   top: 20vh;
+  position: absolute;
 }
 
 .one {
@@ -42,8 +106,8 @@ body {
 }
 
 .four .text-box {
-  border: 3px solid #aaa;
-  border-radius: 5px;
+  border: 2px solid #ccc;
+  border-radius: 20px;
   margin: 0 auto;
   padding: 10px;
   position: relative;
@@ -61,18 +125,18 @@ body {
 
 .text-box .fake-btn {
   background-color: rgb(21, 161, 237);
-  border-radius: 3px;
+  border-radius: 5px;
   bottom: -50px;
-  color: #fff;
-  padding: .5rem 1rem;
-  position: absolute;
   right: 5px;
+  position: absolute;
+  color: #fff;
+  padding: 0.5rem 1rem;
 }
 
 .five p {
   font-size: 2rem;
-  left: 0;
   position: absolute;
+  left: 0;
   right: 0;
 }
 
@@ -86,14 +150,15 @@ body {
   font-size: 4rem;
 }
 
-.idea-5 span, .idea-6 span, .wish-hbd span {
+.idea-5 span,
+.idea-6 span,
+.wish-hbd span {
   display: inline-block;
 }
 
-.idea-6 span{
+.idea-6 span {
   font-size: 15rem;
 }
-
 
 .six {
   position: relative;
@@ -105,35 +170,35 @@ body {
   display: inline-block;
   height: 350px;
   max-width: 100%;
-  /* height: auto; */
+  border-radius: 14px;
 }
 
 .six .hat {
-  left: 41.5%;
   position: absolute;
-  /* transform: scale(0.1); */
+  left: 41.5%;
   top: -35%;
-  width: 80px;
+  width: 60px;
+  rotate: 14deg;
 }
 
-.baloons img {
+.ballons img {
   display: inline-block;
   position: absolute;
 }
 
-.baloons img:nth-child(even) {
+.ballons img:nth-child(even) {
   left: -10%;
 }
 
-.baloons img:nth-child(odd) {
+.ballons img:nth-child(odd) {
   right: -10%;
 }
 
-.baloons img:nth-child(3n + 0) {
+.ballons img:nth-child(3n + 0) {
   left: 30%;
 }
 
-.seven, .eight {
+.seven .eight {
   height: 100vh;
   position: fixed;
   top: 0;
@@ -251,8 +316,14 @@ body {
 }
 
 @media screen and (max-width: 500px) {
+  .login_form{
+    width: 350px;
+    height: 250px;
+  }
+
   .container {
-    width: 90%;
+    width: 100%;
+    padding: 0 10px;
   }
 
   .four .text-box {
@@ -260,7 +331,7 @@ body {
   }
 
   .text-box .fake-btn {
-    bottom: -38px;
+    bottom: -50px;
     right: 5px;
   }
 
@@ -282,83 +353,11 @@ body {
   }
 
   .wish h5 {
-    font-size: 1.4rem;
+    font-size: .8rem;
   }
 
   .nine p {
     font-size: 1.5rem;
     font-weight: lighter;
   }
-  /* Slideshow container */
-.slideshow-container {
-  max-width: 100%;
-  position: relative;
-  margin: auto;
-}
-
-/* Gambar slide */
-.mySlides {
-  display: none;
-}
-
-.profile-picture {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-}
-
-/* Tombol navigasi untuk mengontrol slide (opsional) */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  margin-top: -22px;
-  padding: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-}
-
-.prev {
-  left: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-.next {
-  right: 0;
-  border-radius: 3px 3px 0 0;
-}
-
-/* Animasi transisi fade */
-.fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@-webkit-keyframes fade {
-  from { opacity: .4 } 
-  to { opacity: 1 }
-}
-
-@keyframes fade {
-  from { opacity: .4 } 
-  to { opacity: 1 }
-}
-#replay {
-  color: black; /* Warna teks default */
-  font-size: 1.2em;
-  transition: color 0.3s ease; /* Transisi warna agar lebih halus */
-}
-
-#replay:hover {
-  color: #ff69b4; /* Warna saat di-hover, misalnya pink */
-  cursor: pointer; /* Ganti kursor menjadi pointer untuk menunjukkan bahwa teks bisa diklik */
-}
-
 }
