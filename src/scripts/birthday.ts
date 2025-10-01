@@ -1,6 +1,9 @@
 import Swal from 'sweetalert2';
 import { gsap } from 'gsap';
+import { TextPlugin } from 'gsap/TextPlugin';
 import '../styles/chat.css';
+
+gsap.registerPlugin(TextPlugin);
 
 window.addEventListener('load', () => {
   Swal.fire({
@@ -20,20 +23,22 @@ window.addEventListener('load', () => {
 });
 
 const animationTimeline = () => {
-  const textBoxChars = document.querySelector('.hbd-chatbox') as HTMLElement;
   const hbd = document.querySelector('.wish-hbd') as HTMLElement;
-
-  if (textBoxChars) {
-    textBoxChars.innerHTML = `<span>${textBoxChars.innerHTML
-      .split('')
-      .join('</span><span>')}</span>`;
-  }
-
   if (hbd) {
-    hbd.innerHTML = `<span>${hbd.innerHTML
-      .split('')
-      .join('</span><span>')}</span>`;
+    hbd.innerHTML = `<span>${hbd.innerHTML.split('').join('</span><span>')}</span>`;
   }
+
+  const hbdChatbox = document.querySelector('.hbd-chatbox') as HTMLElement;
+  const idea1 = document.querySelector('.idea-1') as HTMLElement;
+  const idea2 = document.querySelector('.idea-2') as HTMLElement;
+
+  const hbdChatboxText = hbdChatbox ? hbdChatbox.innerText : '';
+  const idea1Text = idea1 ? idea1.innerText : '';
+  const idea2Text = idea2 ? idea2.innerText : '';
+
+  if (hbdChatbox) hbdChatbox.innerText = '';
+  if (idea1) idea1.innerText = '';
+  if (idea2) idea2.innerText = '';
 
   const ideaTextTrans = {
     opacity: 0,
@@ -58,19 +63,29 @@ const animationTimeline = () => {
     .to('.two', { duration: 0.7, opacity: 0, y: 10 }, '-=1')
     .from('.three', { duration: 0.7, opacity: 0, y: 10 })
     .to('.three', { duration: 0.7, opacity: 0, y: 10 }, '+=3')
-    .from('.four', { duration: 0.7, scale: 0.2, opacity: 0 })
+
+    // Show typing indicator
+    .to('.typing-indicator', { duration: 0.5, autoAlpha: 1, y: 0 }, '+=1')
+    .to('.typing-indicator', { duration: 0.5, autoAlpha: 0, y: 10 }, '+=2')
+
+    .from('.four', { duration: 0.7, scale: 0.2, opacity: 0 }, '-=0.5')
     .from('.fake-btn', { duration: 0.3, scale: 0.2, opacity: 0 })
-    .to('.hbd-chatbox span', {
-      duration: 1.5,
-      visibility: 'visible',
-      stagger: 0.05,
+    .to(hbdChatbox, {
+      duration: hbdChatboxText.length * 0.05,
+      text: hbdChatboxText,
+      ease: 'none',
     })
     .to('.fake-btn', { duration: 0.1, backgroundColor: 'rgb(127, 206, 248)' }, '+=4')
     .to('.four', { duration: 0.5, scale: 0.2, opacity: 0, y: -150 }, '+=1')
-    .from('.idea-1', { duration: 0.7, ...ideaTextTrans })
-    .to('.idea-1', { duration: 0.7, ...ideaTextTransLeave }, '+=2.5')
-    .from('.idea-2', { duration: 0.7, ...ideaTextTrans })
-    .to('.idea-2', { duration: 0.7, ...ideaTextTransLeave }, '+=2.5')
+
+    .from(idea1, { duration: 0.7, ...ideaTextTrans })
+    .to(idea1, { duration: idea1Text.length * 0.05, text: idea1Text, ease: 'none' })
+    .to(idea1, { duration: 0.7, ...ideaTextTransLeave }, '+=2.5')
+
+    .from(idea2, { duration: 0.7, ...ideaTextTrans })
+    .to(idea2, { duration: idea2Text.length * 0.05, text: idea2Text, ease: 'none' })
+    .to(idea2, { duration: 0.7, ...ideaTextTransLeave }, '+=2.5')
+
     .from('.idea-3', { duration: 0.7, ...ideaTextTrans })
     .to('.idea-3 strong', {
       duration: 0.5,

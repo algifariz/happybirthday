@@ -32,3 +32,58 @@
   margin: 0;
   padding: 0;
 }
+
+.typing-indicator {
+  background-color: #fff;
+  align-self: flex-start;
+  border-radius: 20px;
+  padding: 15px;
+  display: inline-block;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.typing-indicator span {
+  height: 8px;
+  width: 8px;
+  background-color: #9E9E9E;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 2px;
+  animation: bounce 1.2s infinite;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+  0%, 60%, 100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-5px);
+  }
+}
+
+.message-meta {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 0.75em;
+  color: #888;
+  margin-top: 5px;
+}
+
+.timestamp {
+  margin-right: 5px;
+}
+
+.read-receipt {
+  color: #4fc3f7; /* Blue for read receipts */
+  font-weight: bold;
+}
