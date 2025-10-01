@@ -1,0 +1,34 @@
+.chat-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chat-message {
+  padding: 10px 15px;
+  border-radius: 20px;
+  max-width: 70%;
+  opacity: 0; /* Initially hidden for animation */
+}
+
+.chat-message.sent {
+  background-color: #dcf8c6;
+  align-self: flex-end;
+  border-top-right-radius: 5px;
+}
+
+.chat-message.received {
+  background-color: #fff;
+  align-self: flex-start;
+  border-top-left-radius: 5px;
+}
+
+.chat-message h1,
+.chat-message p {
+  margin: 0;
+  padding: 0;
+}
